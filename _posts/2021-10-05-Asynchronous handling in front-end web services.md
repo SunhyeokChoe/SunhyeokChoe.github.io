@@ -1,11 +1,14 @@
 ---
 title: 프론트엔드 웹 서비스에서 우아하게 비동기 처리하기
-author: SunhyeokChoe
+author:
+  name: SunhyeokChoe
+  link: https://sunhyeokchoe.github.io
 date: 2021-10-05 11:50:00 +0800
 categories: [React, SLASH21 - 토스개발자컨퍼런스]
 tags: [React Suspense, Data Fetching]
 math: true
 mermaid: true
+pin: false
 ---
 
 API를 호출하거나 네이티브 앱과 통신할 때 프론트엔드 웹 서비스에서는 반드시 비동기 작업이 일어나게 됩니다.

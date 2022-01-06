@@ -97,7 +97,7 @@ comments:
   # utterances settings › https://utteranc.es/
   utterances:
     repo: SunhyeokChoe/SunhyeokChoe.github.io        # <gh-username>/<repo>
-    issue_term: title  # < url | pathname | title | ...>
+    issue_term: url  # < url | pathname | title | ...>
 
 paginate: 10
 
