@@ -1,5 +1,5 @@
 ---
-title: Git 시작하기
+title: '[Git] 시작하기'
 author:
   name: SunhyeokChoe
   link: https://github.com/SunhyeokChoe
