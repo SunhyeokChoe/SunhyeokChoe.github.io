@@ -11,7 +11,7 @@ mermaid: true
 pin: false
 ---
 
-![Pro Git 2nd](/assets/img/2022-01-12/Git/Getting Started/Git Pro 2nd.png)
+![Pro Git 2nd](/assets/img/2022-01-12/Git/Getting Started/Git Pro 2nd.png){:width="20%"}
 _Pro Git 2nd_
 
 본 Git 게시글은 도서 "**Pro Git 2nd** *스캇 샤콘, 벤 스트라웁 공저 / 박창우, 이성환, 최용재 공역*"을 참고하여 작성했습니다. 내용은 거의 대부분 도서와 동일하나 Git 2.23.0 이전 버전의 명령어를 Git에서 새로 제안하는 명령어로 바꿨고, 중간중간 추가 내용이 있으면 좋겠다 싶은 곳에는 짧게 제 의견을 추가했습니다.
