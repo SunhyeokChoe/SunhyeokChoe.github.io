@@ -4,8 +4,8 @@ author:
   name: SunhyeokChoe
   link: https://github.com/SunhyeokChoe
 date: 2022-01-12 17:11:00 +0900
-categories: [Git, Git Settings]
-tags: [Git, VCS, DVCS, Github, Git Settings]
+categories: [Git, Getting Started]
+tags: [Git Settings, Git, VCS, DVCS, Github]
 math: true
 mermaid: true
 pin: false
