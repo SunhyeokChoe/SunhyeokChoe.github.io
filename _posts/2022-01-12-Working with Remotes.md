@@ -19,15 +19,15 @@ pin: false
 
 `git remote` 명령으로 현재 프로젝트에 등록된 리모트 저장소를 확인할 수 있다. 저장소를 Clone하면 origin이라는 이름의 리모트 저장소가 자동으로 등록된다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled.png)
 
 `-v` 옵션을 주어 단축 이름과 URL을 함께 볼 수 있다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 1.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 1.png)
 
 만약 리모트 저장소가 여러 개 있다면 이 명령은 등록된 전부를 보여준다. 여러 사람과 함께 작업하는 리모트 저장소가 여러 개라면 아래와 같은 결과를 얻을 수 도 있다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 2.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 2.png)
 
 이렇게 여러 리모트 저장소가 등록되어 있으면 다른 사람이 기여한 내용(Contributions)을 쉽게 가져올 수 있다. 어떤 저장소에는 Push 권한까지 제공하기도 하지만 일단 이 화면에서 Push 기능 권한까지는 확인할 수 없다.
 
@@ -37,7 +37,7 @@ pin: false
 
 `git remote add <remote-name> <url>` 명령을 통해 리모트 저장소를 쉽게 추가할 수 있다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 3.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 3.png)
 
 ## 리모트 저장소를 Pull하거나 Fetch하기
 
@@ -67,7 +67,7 @@ $ git push origin master
 
 `git remote show <remote-name>` 명령으로 리모트 저장소의 구체적인 정보를 확인할 수 있다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 4.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 4.png)
 
 리모트 저장소의 URL과 추적 중인 브랜치를 출력한다. 이 명령은 `git pull` 명령을 실행할 때 master 브랜치와 Merge할 브랜치가 무엇인지 보여준다.
 
@@ -79,8 +79,8 @@ $ git push origin master
 
 `git remote rename <old-remote-name> <new-remote-name>` 명령으로 리모트 저장소의 이름을 변경할 수 있다. 예를 들어 example을 ex로 변경하려면 다음과 같이 하면 된다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 5.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 5.png)
 
 리모트 저장소를 삭제해야 한다면 `git remote rm` 명령을 사용한다.
 
-![Untitled](/assets/img/2022-01-12/Git/Working With Remotes/Untitled 6.png)
+![Untitled](/assets/img/2022-01-12/Git/Working with Remotes/Untitled 6.png)
