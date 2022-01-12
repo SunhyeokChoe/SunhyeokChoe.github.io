@@ -57,8 +57,8 @@ _Integration-Manager Workflow_
 
 이 방식은 여러개의 저장소를 운영하는 방식을 변형한 구조를 갖는다. 보통 수백 명의 개발자가 참여하는 아주 큰 프로젝트를 운영할 때 이 방식을 사용한다. Linux 커널 프로젝트가 대표적이다. 여러 명의 Integration-Manager가 저장소에서 자신이 맡은 부분만을 담당하는데 이들을 ***Lieutenants*** 라고 부른다. 모든 Lieutenant는 최종 관리자 아래에 있으며 이 최종 관리자를 ***Benevolent Dictator*** 라고 부른다. Benevolent Dictator는 Lieutenant의 저장소를 가져와 공식 저장소에 Push 하고 모든 프로젝트 참여자는 이 공식 저장소에서 반드시 Pull 해야 한다. 이러한 워크플로는 다음과 같다.
 
-![Benevolent dictator workflow](/assets/img/2022-01-12/Git/Distributed Workflows/Benevolent dictator workflow.png)
-_Benevolent dictator workflow_
+![Benevolent dictator Workflow](/assets/img/2022-01-12/Git/Distributed Workflows/Benevolent dictator Workflow.png)
+_Benevolent dictator Workflow_
 
 1. 개발자는 코드를 수정하고 master 브랜치를 기준으로 자신의 토픽 브랜치를 Rebase 한다. 여기서 master 브랜치란 공식 저장소의 브랜치를 말한다.
 2. Lieutenant들은 개발자들의 수정사항을 자신이 관리하는 master 브랜치에 Merge 한다.
