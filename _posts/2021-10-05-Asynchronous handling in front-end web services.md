@@ -3,7 +3,7 @@ title: 프론트엔드 웹 서비스에서 우아하게 비동기 처리하기
 author:
   name: SunhyeokChoe
   link: https://github.com/SunhyeokChoe
-date: 2021-10-05 11:50:00 +0800
+date: 2021-10-05 11:50:00 +0900
 categories: [React, SLASH21 - 토스개발자컨퍼런스]
 tags: [React Suspense, Data Fetching]
 math: true
