@@ -3,7 +3,7 @@ title: '[Git] 브랜치 및 커밋 개체 생성 과정'
 author:
   name: SunhyeokChoe
   link: https://github.com/SunhyeokChoe
-date: 2022-01-12 18:44:00 +0900
+date: 2022-01-12 19:00:00 +0900
 categories: [Git, Branch]
 tags: [git branch, git switch, Git, VCS, DVCS, Github]
 math: true
