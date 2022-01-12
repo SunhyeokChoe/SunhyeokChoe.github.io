@@ -5,7 +5,7 @@ author:
   link: https://github.com/SunhyeokChoe
 date: 2022-01-12 17:24:00 +0900
 categories: [Git, Getting Started]
-tags: [Git Commit, Git Repository, Git, VCS, DVCS, Github]
+tags: [Git Repository, git commit, Git, VCS, DVCS, Github]
 math: true
 mermaid: true
 pin: false
