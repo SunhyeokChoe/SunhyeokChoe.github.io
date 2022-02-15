@@ -11,7 +11,7 @@ mermaid: true
 pin: false
 ---
 
-![Untitled](/assets/img/2022-02-15/Terminology/Monolith, Multi-Repo, Mono-Repo/Monolith, Multi-Repo, Mono-Repo.png)
+![Monolith, Multi-Repo, Mono-Repo](/assets/img/2022-02-15/Terminology/Monolith, Multi-Repo, Mono-Repo/Monolith, Multi-Repo, Mono-Repo.png)
 
 프로젝트 구조를 구성하는 방식 3가지가 위에 나와있다. `모놀리스`, `멀티레포`, `모노레포`이다.
 
@@ -29,7 +29,7 @@ pin: false
 
 모노레포라는것은 1개의 `git repository`가 존재한다는 뜻이다.그 레포지토리안에는 하나의 큰 공통 패키지 안에 여러개의 서브 패키지가 들어있다.
 
-## **모노 레포의 장점**
+## **모노레포의 장점**
 
 ---
 
@@ -92,7 +92,7 @@ Yarn Workspace에서는 각 서브 패키지들의 의존성이 모두 루트에
 
 ---
 
-`Lerna`를 사용해서 모노 레포를 구성해보면 다음과 같은 프로젝트 구조가 생긴다.
+`Lerna`를 사용해서 모노레포를 구성해보면 다음과 같은 프로젝트 구조가 생긴다.
 
 ```
 mylerna_repo/-   node_modules
