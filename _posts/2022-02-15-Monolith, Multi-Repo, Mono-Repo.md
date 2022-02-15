@@ -12,6 +12,7 @@ pin: false
 ---
 
 ![Monolith, Multi-Repo, Mono-Repo](/assets/img/2022-02-15/Terminology/Monolith, Multi-Repo, Mono-Repo/Monolith, Multi-Repo, Mono-Repo.png)
+_Monolith, Multi-Repo, Mono-Repo_
 
 프로젝트 구조를 구성하는 방식 3가지가 위에 나와있다. `모놀리스`, `멀티레포`, `모노레포`이다.
 
