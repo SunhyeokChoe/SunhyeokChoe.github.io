@@ -359,8 +359,8 @@ Notification이 새로 추가되면 고유 ID를 할당받습니다. 이 고유�
 
 ### ViewModels: **GrowlNotificationsViewModel.cs**
 
-- 뷰의 뷰모델로서, Notificators(Notificator들을 담는) 컬렉션 참조
-- Action 델리게이트로 창을 Show 혹은 Hide 할 수 있도록 인터페이스 노출
+- 뷰의 뷰모델로서, Notification들을 담는 Notifications 컬렉션을 프로퍼티로 참조해 뷰에 바인딩
+- Notificator 객체가 뷰 Window를 Show 혹은 Hide 할 수 있도록 Action 델리게이트를 인터페이스로 전달받음
 
 ```csharp
 namespace __PROJECT_NAMESPACE__
@@ -490,6 +490,10 @@ namespace __PROJECT_NAMESPACE__
             else
                 Message = EnumHelper.GetDescription(msgType);
 
+            /* 
+             * info, warn 그리고 error 이 세 가지의 타입만으론 부족해 더 많은 타입을 추가해야 한다면
+             * 타입을 한 단계 더 높게 추상화 하시면 if-else 문을 제거하실 수 있습니다.
+             */
             if (NotificationType.infoList.Contains(mt))
             {
                 Title = ImageType.info.ToString();
@@ -931,7 +935,7 @@ NotificatorWrapper.AddNotification(new Notification(MessageType.noPortAvailable)
 NotificatorWrapper.AddNotification(new Notification(MessageType.noSlaveScanned));
 ```
 
-### IWindownFunc.cs
+### IWindowFunc.cs
 
 - Notificator 객체가 GrowlNotificationsViewModel 객체의 Window 창을 보여주거나 가릴 수 있도록 액션 프로퍼티 Show, Hide를 노출한 인터페이스
 
