@@ -588,6 +588,39 @@ namespace __PROJECT_NAMESPACE__
     }
 }
 ```
+Notification.cs 클래스에서 48번째 라인부터 사용하는 EnumHelper.GetDescription 메서드는 enum 값에 붙은 Description string 값을 얻게 해주는 역할을 합니다. 코드는 다음과 같습니다.
+```csharp
+namespace __PROJECT_NAMESPACE__
+{
+    using System;
+    using System.ComponentModel;
+    using System.Reflection;
+
+    public static class EnumHelper 
+    {
+        /// <summary>
+        /// Enum의 특정 인덱스의 Description 반환
+        /// </summary>
+        /// <param name="en"> description을 받아올 enum 인덱스 </param>
+        public static string GetDescription(Enum en)
+        {
+            Type type = en.GetType();
+            MemberInfo[] memInfo = type.GetMember(en.ToString());
+            if (memInfo != null && memInfo.Length > 0)
+            {
+                // 해당 인덱스의 Description raw text 추출
+                object[] attrs = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+
+                if (attrs != null && attrs.Length > 0)
+                {
+                    return ((DescriptionAttribute)attrs[0]).Description;
+                }
+            }
+            return en.ToString();
+        }
+    }
+}
+```
 
 ### Models: **Notificator.cs**
 
