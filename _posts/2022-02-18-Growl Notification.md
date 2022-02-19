@@ -25,7 +25,7 @@ _팝업 알림창 최종 결과물 예시_
      |-- GrowlNotificationsView.xaml
           |-- GrowlNotificationsView.xaml.cs
 |-- ViewModels
-     |-- GrowlNotificationViewModel.cs
+     |-- GrowlNotificationsViewModel.cs
 |-- Models
      |-- Notificates
           |-- Notification.cs
@@ -37,7 +37,7 @@ _팝업 알림창 최종 결과물 예시_
      |-- IWindowFunc.cs
 ```
 
-※ GrowlNotificationsViewModel, Notificator, Notifications 클래스에서 상속받는 ViewModelBase 클래스는 INotifyPropertyChanged 인터페이스를 구현하는 클래스입니다. RaisePropertyChanged 메서드는 따로 구현해 주시기 바랍니다.
+※ GrowlNotificationsViewModel, Notificator, Notification 클래스에서 상속받는 ViewModelBase 클래스는 INotifyPropertyChanged 인터페이스를 구현하는 클래스입니다. RaisePropertyChanged 메서드는 따로 구현해 주시기 바랍니다.
 
 ### Views: **GrowlNotificationsView.xaml & GrowlNotificationsView.xaml.cs**
 
@@ -385,11 +385,11 @@ namespace __PROJECT_NAMESPACE__
 
         #region ctors
         /// <summary>
-        /// MainWindow.xaml.cs의 필드에서 _growlNotificationView(GrowlNotificationsView type)를 생성함. 생성시 코드 플로우는 다음과 같다.
-        /// 1. _growlNotificationView의 기본생성자가 call됨
+        /// MainWindow.xaml.cs의 필드에서 _growlNotificationsView(GrowlNotificationsView type)를 생성함. 생성시 코드 플로우는 다음과 같다.
+        /// 1. _growlNotificationsView의 기본생성자가 call됨
         /// 2. 기본생성자 내 InitializeComponent()가 call됨
-        /// 3. _growlNotificationView.xaml의 코드가 실행되어 각 Element에 대응되는 클래스가 생성됨
-        /// 4. 위 3번 과정에서 _growlNotificationView.xaml의 최하단에 있는 ItemsControl 내 DataContext={StaticResources GrowlNotificationsViewModel}가
+        /// 3. _growlNotificationsView.xaml의 코드가 실행되어 각 Element에 대응되는 클래스가 생성됨
+        /// 4. 위 3번 과정에서 _growlNotificationsView.xaml의 최하단에 있는 ItemsControl 내 DataContext={StaticResources GrowlNotificationsViewModel}가
         ///    호출돼 GrowlNotificationsViewModel를 초기화하고, ItemsControl DataContext의 바인딩 주체가 됨.
         /// </summary>
         public GrowlNotificationsViewModel()
@@ -435,7 +435,7 @@ namespace __PROJECT_NAMESPACE__
 
 ### Models: **Notification.cs**
 
-- GrowlNotificationView에 컬렉션 형태로 바인딩 될 Model 클래스
+- GrowlNotificationsView에 컬렉션 형태로 바인딩 될 Model 클래스
 - 팝업창의 기본적인 메타데이터 포함  
   ex) Title, MsgType, Message, ImageUrl, Id
 - 외부에서 NotificatorWrapper.AddNotification 및 NotificatorWrapper.RemoveNotification 을 호출할 때 파라미터로 활용됨
@@ -1074,13 +1074,13 @@ namespace __PROJECT_NAMESPACE__
 // ... App 렌더링 완료 직후 ...
 
 // 팝업 윈도우 생성. _mainWindow의 Left, Top, Width를 참조하므로 메인윈도우 생성 후 생성
-_growlNotificationView = new GrowlNotificationsView();
+_growlNotificationsView = new GrowlNotificationsView();
 
 /*
- * _growlNotificationView 윈도우의 소유권을 _mainWindow로 넘김
+ * _growlNotificationsView 윈도우의 소유권을 _mainWindow로 넘김
  * (참조: https://docs.microsoft.com/ko-kr/dotnet/api/system.windows.window.owner?view=netcore-3.1)
  */
-_growlNotificationView.Owner = _mainWindow;
+_growlNotificationsView.Owner = _mainWindow;
 ```
 
 글 초입에 말씀 드렸듯이 PC 화면 우상단에 anchor되는 것이 아닌 프로그램 우상단에 anchor되도록 구현합니다.
@@ -1097,7 +1097,7 @@ private void MainWindow_LocationChanged(object sender, EventArgs e)
 
     // MainWindow가 Maximized 상태가 아닌 상태일 때에만 변경해야 함
     if (!window.WindowState.Equals(WindowState.Maximized))
-        _growlNotificationView?.SetLocation();
+        _growlNotificationsView?.SetLocation();
 }
 
 /// <summary>
@@ -1107,14 +1107,14 @@ private void MainWindow_LocationChanged(object sender, EventArgs e)
 /// <param name="sender"> AppDomain </param>
 private void MainWindow_SizeChanged(object sender, SizeChangedEventArgs e)
 {
-    _growlNotificationView?.SetActualLocation();
+    _growlNotificationsView?.SetActualLocation();
 }
 ```
 
-앱 종료 시에도 지속적으로 값을 참조하는 hanging 문제를 피하기 위해 앱 종료(App.OnClosing) 시점에 명시적으로 \_growlNotifiactionsView.Close() 를 호출하도록 합니다.
+앱 종료 시에도 지속적으로 값을 참조하는 hanging 문제를 피하기 위해 앱 종료(App.OnClosing) 시점에 명시적으로 _growlNotifiactionsView.Close() 를 호출하도록 합니다.
 
 ```csharp
-_growlNotificationView.Close();
+_growlNotificationsView.Close();
 ```
 
 <br/><br/><br/>
