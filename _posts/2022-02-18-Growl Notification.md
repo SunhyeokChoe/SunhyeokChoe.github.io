@@ -231,7 +231,7 @@ _팝업 알림창 최종 결과물 예시_
         DataContext는 Code-Behind에서 정의됐음
         DataContext: GrowlNotificationsViewModel은 ItemsControl의 DataContext
         ItmesSource: GrowlNotificationsViewModel에서 Notification 소스에 바인딩
-        ItemTemplate: 각 메세지 아이템의 속성 (각각 다른 값을 지님)
+        ItemTemplate: 각 메시지 아이템의 속성 (각각 다른 값을 지님)
     -->
     <ItemsControl
         x:Name="NotificationsControl"
@@ -255,9 +255,6 @@ namespace __PROJECT_NAMESPACE__
     using __PROJECT_NAME__.ViewModels.Windows;
     using __PROJECT_NAME__.Models.Structures;
 
-    /// <summary>
-    /// GrowlNotifications.xaml에 대한 상호 작용 논리
-    /// </summary>
     public partial class GrowlNotificationsView : Window
     {
         #region fields
@@ -377,20 +374,20 @@ namespace __PROJECT_NAMESPACE__
         #region fields
         /// <summary>
         /// NotificationWrapper->Notification.Notifications ObservableCollection를 참조하는 프로퍼티.
-        /// View와 직접적으로 바인딩되어 있는 Notifications 프로퍼티는 Notificator내의
-        /// notifications 객체를 참조하는 형식이다.
+        /// View와 바인딩되어 있는 Notifications 프로퍼티는 Notificator내의 notifications 객체를 참조하는 형식이다.
         /// </summary>
         private Notifications _Notifications = null;
         #endregion fields
 
         #region ctors
         /// <summary>
-        /// MainWindow.xaml.cs의 필드에서 _growlNotificationsView(GrowlNotificationsView type)를 생성함. 생성시 코드 플로우는 다음과 같다.
-        /// 1. _growlNotificationsView의 기본생성자가 call됨
-        /// 2. 기본생성자 내 InitializeComponent()가 call됨
-        /// 3. _growlNotificationsView.xaml의 코드가 실행되어 각 Element에 대응되는 클래스가 생성됨
-        /// 4. 위 3번 과정에서 _growlNotificationsView.xaml의 최하단에 있는 ItemsControl 내 DataContext={StaticResources GrowlNotificationsViewModel}가
-        ///    호출돼 GrowlNotificationsViewModel를 초기화하고, ItemsControl DataContext의 바인딩 주체가 됨.
+        /// MainWindow가 렌더링된 시점에 _growlNotificationsView(GrowlNotificationsView type) 객체 생성. 생성시 코드 플로우는 다음과 같다.
+        /// 1. _growlNotificationsView의 기본생성자 호출
+        /// 2. DataContext에 뷰모델 객체 GrowlNotificationsViewModel() 바인딩
+        /// 3. InitializeComponent() 호출
+        /// 4. GrowlNotificationsView.xaml 코드가 실행되어 각 Element에 대응되는 클래스 생성된 후 렌더링
+        /// 5. GrowlNotificationsView.xaml의 최하단에 ItemsControl의 속성 ItemsSource에 팝업 메시지가 담긴 ObservableCollection 객체 Notifications 바인딩
+        ///    ItemsControl의 속성 ItemTemplate에 key 이름이 "MessageTemplate"인 DataTemplate로 지정해 해당 템플릿에서 정의한 스타일 및 애니메이션 기반으로 메시지가 출력되도록 함
         /// </summary>
         public GrowlNotificationsViewModel()
         {
@@ -475,7 +472,7 @@ namespace __PROJECT_NAMESPACE__
         /// default of imgType = ImageType.info
         /// </summary>
         /// <param name="msgType"> 메시지 타입 </param>
-        /// <param name="msg"> 메시지 텍스트 </param>
+        /// <param name="msg"> 메시지 </param>
         /// <param name="imgType"> 이미지 타입 </param>
         public Notification(MessageType msgType, string msg = null, ImageType imgType = (ImageType)0)
         {
@@ -624,7 +621,7 @@ namespace __PROJECT_NAMESPACE__
 
 ### Models: **Notificator.cs**
 
-- Notification을 담는 ObservableCollection \_notifications 객체(최대 5개)와 그 5개를 넘는 요소를 임시적으로 담아놓는 ObservableCollection \_buffer 객체(버퍼 역할) 포함
+- Notification을 담는 ObservableCollection \_notifications 객체(최대 5개)와 그 5개를 넘는 요소를 임시로 담아놓는 ObservableCollection \_buffer 객체(버퍼 역할) 포함
 - Notification을 두 컬렉션에 Boundary check 해가며 Add, Delete 수행하는 로직 포함
 
 ```csharp
@@ -1087,7 +1084,7 @@ _growlNotificationsView.Owner = _mainWindow;
 
 ```csharp
 /// <summary>
-/// 메인윈도우 Left, Right 위치 변동 감지시 팝업창 위치를
+/// 메인윈도우 Top, Left 위치 변동 감지시 팝업창 위치를
 /// 메인윈도우 우상단에 고정되도록 조정
 /// </summary>
 /// <param name="sender"> AppDomain </param>
@@ -1095,7 +1092,7 @@ private void MainWindow_LocationChanged(object sender, EventArgs e)
 {
     var window = sender as Window;
 
-    // MainWindow가 Maximized 상태가 아닌 상태일 때에만 변경해야 함
+    // MainWindow가 Maximized 상태가 아닌 경우에만 변경해야 함
     if (!window.WindowState.Equals(WindowState.Maximized))
         _growlNotificationsView?.SetLocation();
 }
