@@ -956,7 +956,7 @@ NotificatorWrapper.AddNotification(new Notification(MessageType.custom, $"[EXE:C
 
 NotificatorWrapper.AddNotification(
     new Notification(MessageType.custom,
-    $"An unexpected error occured. see /logs/global/[{DateTime.Now:yyyy.mm.dd}]global.txt file.",
+    $"An unexpected error occurred. see /logs/global/[{DateTime.Now:yyyy.mm.dd}]global.txt file.",
     ImageType.error));
 
 // 메시지 타입에 따른 메시지 팝업
