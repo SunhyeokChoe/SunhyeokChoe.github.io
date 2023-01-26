@@ -1,0 +1,7 @@
+User-agent: *
+
+Disallow: /norobots/
+
+Allow: /
+
+Sitemap: https://sunhyeokchoe.github.io/sitemap.xml
