@@ -487,7 +487,7 @@ namespace __PROJECT_NAMESPACE__
             else
                 Message = EnumHelper.GetDescription(msgType);
 
-            /* 
+            /*
              * info, warn 그리고 error 이 세 가지의 타입만으론 부족해 더 많은 타입을 추가해야 한다면
              * 타입을 한 단계 더 높게 추상화 하시면 if-else 문을 제거하실 수 있습니다.
              */
@@ -585,7 +585,9 @@ namespace __PROJECT_NAMESPACE__
     }
 }
 ```
+
 Notification.cs 클래스에서 48번째 라인부터 사용하는 EnumHelper.GetDescription 메서드는 enum 값에 붙은 Description string 값을 얻게 해주는 역할을 합니다. 코드는 다음과 같습니다.
+
 ```csharp
 namespace __PROJECT_NAMESPACE__
 {
@@ -593,7 +595,7 @@ namespace __PROJECT_NAMESPACE__
     using System.ComponentModel;
     using System.Reflection;
 
-    public static class EnumHelper 
+    public static class EnumHelper
     {
         /// <summary>
         /// Enum의 특정 인덱스의 Description 반환
@@ -739,7 +741,7 @@ namespace __PROJECT_NAMESPACE__
         /// <param name="notification"> 팝업창 Model </param>
         private void AddToBuffer(Notification notification)
         {
-            if (!LimitationChcek())
+            if (!CheckLimitation())
                 return;
 
             _buffer.Add(notification);
@@ -798,7 +800,7 @@ namespace __PROJECT_NAMESPACE__
                 Hide();
         }
 
-        private bool LimitationChcek()
+        private bool CheckLimitation()
         {
             try
             {
